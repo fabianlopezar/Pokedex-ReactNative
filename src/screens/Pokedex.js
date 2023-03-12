@@ -13,7 +13,7 @@ export default function Pokedex() {
     // Funcion anonima auto ejecutable
     (async () => {
       await loadPokemons();
-    })();
+    })(); 
   }, []);
 
   const loadPokemons = async () => {

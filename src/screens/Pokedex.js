@@ -10,7 +10,7 @@ export default function Pokedex() {
   const[nextUrl,setNextUrl]=useState(null)
 
   useEffect(() => {
-    //funci on anonima auto ejecutable
+    // Funcion anonima auto ejecutable
     (async () => {
       await loadPokemons();
     })();
@@ -19,8 +19,8 @@ export default function Pokedex() {
   const loadPokemons = async () => {
     try {
       const response = await getPokemonsApi(nextUrl);
-      setNextUrl(response.next)
       const pokemonsArray = [];
+
       for await (const pokemon of response.results) {
         const pokemonDetails = await getPokemonDetailsByUrlApi(pokemon.url);
         pokemonsArray.push({
@@ -28,11 +28,12 @@ export default function Pokedex() {
           name: pokemonDetails.name,
           type: pokemonDetails.types[0].type.name,
           order: pokemonDetails.order,
-          image:
-            pokemonDetails.sprites.other["official-artwork"].front_default,
+          image: pokemonDetails.sprites.other["official-artwork"].front_default,
         });
       }
-      setPokemons([...pokemons, ...pokemonsArray]);
+      setPokemons([...pokemons,...pokemonsArray]);
+      setNextUrl(response.next)
+      //console.log("",pokemons)
     } catch (error) {
       console.error(error);
     }

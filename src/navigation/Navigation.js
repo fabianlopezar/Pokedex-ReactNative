@@ -7,7 +7,7 @@ import PokedexNavigation from "./PokedexNavigation";
 import AccountNavigation from "./AccountNavigation";
 
 import AccountScreen from "../screens/Account";
-//video min 7:48
+
 const Tab = createBottomTabNavigator();
 
 export default function Navigation() {

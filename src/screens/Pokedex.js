@@ -33,7 +33,7 @@ export default function Pokedex() {
       }
       setPokemons([...pokemons,...pokemonsArray]);
       setNextUrl(response.next)
-      //console.log("",pokemons)
+      
     } catch (error) {
       console.error(error);
     }

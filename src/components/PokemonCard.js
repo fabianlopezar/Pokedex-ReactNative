@@ -17,7 +17,7 @@ export default function PokemonCard(props) {
   const navigation = useNavigation();
 
   const goToPokemon = () => {
-navigation.navigate("Pokemoni",{id:pokemon.id})
+navigation.navigate("Pokemon",{id:pokemon.id})
   };
   return (
     <TouchableWithoutFeedback onPress={goToPokemon}>
